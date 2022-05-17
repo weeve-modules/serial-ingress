@@ -1,7 +1,7 @@
 version: 1.0.0
-name: Python Ingress Boilerplate
-description: Base module boilerplate for developers in Python.
-icon: https://icons-020-demo.s3.eu-central-1.amazonaws.com/Python.png
+name: Serial imgress
+description: read serial data via USB interface in JSON format 
+icon: https://icons-020-demo.s3.eu-central-1.amazonaws.com/mi_usb-serial_input.png
 type: input
 tags:
   - Boilerplate Ingress
@@ -13,21 +13,25 @@ categories:
   - id: category
     name: Ingress
 image:
-  name: weevenetwork/python-ingress-boilerplate
+  name: weevenetwork/serial-ingress
   tag: latest
 environments:
-  - key: OUTPUT_LABEL
-    description: Output label for data
+  - key: Port
+    description: the USB port of the device
     value: ''
-    default: filteredTemp
+    default: /dev/cu.usbserial-130
     type: string
     name: Output Label
-  - key: OUTPUT_UNIT
-    description: Output unit for data
+  - key: Baud_Rate
+    description: the baud rate used by the USB bus should be the same as the connected device
     value: ''
-    default: Celsius
-    type: string
-    name: Output Unit
+    default: 9600
+    type: enum
+    options:
+      - 9600
+      - 115200
+      - 921600
+    name: baud rate
 commands: []
 document:
   ports: []

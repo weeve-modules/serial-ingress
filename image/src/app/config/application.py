@@ -5,6 +5,6 @@ from app.utils.env import env
 
 
 APPLICATION = {
-    "OUTPUT_LABEL": env("OUTPUT_LABEL", "temperature"),
-    "OUTPUT_UNIT": env("OUTPUT_UNIT", "Celsius"),
+    Port: env("USB Port", "/dev/cu.usbserial-130"),
+    Baud_Rate: env("Baud rate", "9600"),
 }
