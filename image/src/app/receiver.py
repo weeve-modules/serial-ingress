@@ -3,7 +3,7 @@ import json
 
 try:
     # port
-    port = "/dev/cu.usbserial-1130"
+    port = "/dev/cu.usbserial-130"
     #  open the serial port and get the serial port object
     ser = serial.Serial(port, 115200, timeout=1)
     while 1:
