@@ -4,11 +4,9 @@ All constants specific to weeve
 from app.utils.env import env
 
 WEEVE = {
-    "MODULE_NAME": env("MODULE_NAME", "python-ingress-boilerplate"),
+    "MODULE_NAME": env("MODULE_NAME", "serial-ingress"),
     "MODULE_TYPE": env("MODULE_TYPE", "INGRESS"),
-    "EGRESS_SCHEME": env("EGRESS_SCHEME", "http"),
-    "EGRESS_HOST": env("EGRESS_HOST", "0.0.0.0"),
-    "EGRESS_PORT": env("EGRESS_PORT", "80"),
-    "EGRESS_PATH": env("EGRESS_PATH", ""),
-    "EGRESS_URL": env("EGRESS_URL", "http://localhost:8000")
+    "PORT": env("PORT","/dev/cu.usbserial-130"),
+    "BAUD_RATE": env("BAUD_RATE","115200"),
+    "EGRESS_URL": env("EGRESS_URL", "https://hookb.in/oXkwLNJEEjHYX7mgwq6g")
 }

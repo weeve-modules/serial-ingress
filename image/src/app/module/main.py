@@ -3,6 +3,8 @@ All logic related to the module's main application
 Mostly only this file requires changes
 """
 
+import serial
+import json
 
 def module_main():
     """implement module logic here
