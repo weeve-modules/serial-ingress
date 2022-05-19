@@ -4,7 +4,7 @@
 # PIPESTATUS with a simple $?, but I don’t do that.
 set -o errexit -o pipefail -o noclobber -o nounset
 
-echo "Entrypoint script for serial-ingress"
+echo "Entrypoint script for http-ingress"
 echo "Container args: $@"
 
 ########################
@@ -70,4 +70,4 @@ fi
 #↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
 # CALL THE MAIN SCRIPT
-python3 ./src/main.py $@
+python ./image/src/main.py $@
