@@ -9,5 +9,4 @@ WEEVE = {
     "PORT":env("Port","/dev/cu.usbserial-130"),
     "BAUD_RATE":env("Baud Rate","115200"),
     "EGRESS_URL": env("EGRESS_URL", "https://hookb.in/oXkwLNJEEjHYX7mgwq6g")
-
 }
