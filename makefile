@@ -25,6 +25,6 @@ install_local:
 .phony: install_local
 
 run_local:
-	python image/src/main.py
+	python3 image/src/main.py
 .phony: run_local
 
