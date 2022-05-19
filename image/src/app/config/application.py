@@ -5,6 +5,7 @@ from app.utils.env import env
 
 
 APPLICATION = {
-    "Port": env("Port", "/dev/cu.usbserial-1130"),
-    "Baud_Rate": env("Baud rate", "115200"),
+  
+ "PORT": env("PORT", "/dev/cu.usbserial-130"),
+ "BAUD_RATE": env("BAUD_RATE", "9600")
 }
