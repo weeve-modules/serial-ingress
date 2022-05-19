@@ -28,5 +28,5 @@ def module_main():
 
             return dict_json, None
    
-    except json.JSONDecodeError as e:
+    except ser.SerialException  as e:
         return None, f"Unable to perform the module logic: {e}"
