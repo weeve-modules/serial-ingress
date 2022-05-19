@@ -70,4 +70,4 @@ fi
 #↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
 # CALL THE MAIN SCRIPT
-python3 ./image/src/main.py $@
+python ./src/main.py $@
