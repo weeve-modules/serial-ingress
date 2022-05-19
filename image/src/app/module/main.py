@@ -6,6 +6,8 @@ Mostly only this file requires changes
 import serial
 import json
 
+from app.config import APPLICATION
+
 def module_main():
     """implement module logic here
 
@@ -16,6 +18,15 @@ def module_main():
         [string, string]: [data, error]
     """
     try:
-        return "parsed_data", None
-    except Exception:
-        return None, "Unable to perform the module logic"
+        #  open the serial port and get the serial port object
+        ser = serial.Serial(APPLICATION['PORT'], APPLICATION['BAUD_RATE'], timeout=1)
+        while 1:
+            ser.reset_input_buffer()
+            #  read json payload
+            data = ser.readline().decode("ISO-8859-1")
+            dict_json = json.loads(data)
+
+            return dict_json, None
+   
+    except json.JSONDecodeError as e:
+        return None, f"Unable to perform the module logic: {e}"
