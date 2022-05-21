@@ -25,8 +25,8 @@ def module_main():
             #  read json payload
             data = ser.readline().decode("ISO-8859-1")
             dict_json = json.loads(data)
-
+            print( dict_json)
             return dict_json, None
    
-    except ser.SerialException  as e:
-        return None, f"Unable to perform the module logic: {e}"
+    except ser.SerialException  as e:       
+      return None, f"Unable to perform the module logic: {e}"
