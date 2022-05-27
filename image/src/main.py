@@ -10,7 +10,7 @@ log = getLogger("main")
 def main():
     """ Main app entry point"""
     configure_logging()
-
+    print("main")
     created = create_app()
     if created:
         log.info("%s Started", WEEVE["MODULE_NAME"])

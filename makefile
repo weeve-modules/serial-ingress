@@ -14,7 +14,7 @@ push_latest:
 .phony: push_latest
 
 run_image:
-	docker run -i --privileged -v /dev/bus/usb:/dev/bus/usb  -p  5001:5000  --rm --env-file=./config.env ${MODULE}:latest
+	docker run -i --device=/dev/ttyUSB0  -p  5000:80  --rm --env-file=./config.env ${MODULE}:latest
 .phony: run_image
 
 lint:

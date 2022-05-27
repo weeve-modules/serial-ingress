@@ -32,3 +32,4 @@ def create_app() -> bool:
     else:
         log.error("Error while sending data")
         return False
+    
