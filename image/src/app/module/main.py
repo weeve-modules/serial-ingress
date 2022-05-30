@@ -5,9 +5,22 @@ Mostly only this file requires changes
 
 import serial
 import json
-#import threading
+import threading
 from app.weeve.egress import send_data
 from app.config import APPLICATION
+
+#dict_json={}
+ser = serial.Serial(APPLICATION['PORT'], APPLICATION['BAUD_RATE'], timeout=1)
+def readserial():
+    while 1:
+            #ser.inWaiting() > 0:
+        # ser.reset_input_buffer()
+        #  read json payload
+        ser.reset_input_buffer()
+        data = ser.readline().decode("ISO-8859-1")
+        dict_json = json.loads(data)
+        sent=send_data(dict_json)
+        print(dict_json)
 
 def module_main():
     """implement module logic here
@@ -18,15 +31,15 @@ def module_main():
     Returns:
         [string, string]: [data, error]
     """
+    thread = threading.Thread(target=readserial)
     try:
         #  open the serial port and get the serial port object
-         ser = serial.Serial(APPLICATION['PORT'], APPLICATION['BAUD_RATE'], timeout=1)
-         while 1:
-            ser.reset_input_buffer()
+         thread.start()  
+         #while 1:
+            
             #  read json payload
-            data = ser.readline().decode("ISO-8859-1")
-            dict_json = json.loads(data)
-            print(dict_json)
-            sent=send_data(dict_json)
+           
+          
+            
     except json.JSONDecodeError as e:
             return None, f"Unable to perform the module logic: {e}"
