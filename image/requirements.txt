@@ -1,4 +1,4 @@
 requests
 python-dotenv
 pyserial==3.3 
-thread6
+
