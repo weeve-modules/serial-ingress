@@ -19,7 +19,7 @@ environments:
   - key: PORT
     description: The USB port
     value: ''
-    default:/dev/ttyUSB0
+    default: /dev/ttyUSB0
     type: string
     name: Port
   - key: BAUD_RATE
