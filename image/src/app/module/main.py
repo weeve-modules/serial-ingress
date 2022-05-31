@@ -2,12 +2,10 @@
 All logic related to the module's main application
 Mostly only this file requires changes
 """
-
 import serial
 import json
-
+from app.weeve.egress import send_data
 from app.config import APPLICATION
-
 def module_main():
     """implement module logic here
 
@@ -20,13 +18,14 @@ def module_main():
     try:
         #  open the serial port and get the serial port object
         ser = serial.Serial(APPLICATION['PORT'], APPLICATION['BAUD_RATE'], timeout=1)
-        while 1:
-            ser.reset_input_buffer()
-            #  read json payload
-            data = ser.readline().decode("ISO-8859-1")
-            dict_json = json.loads(data)
-
-            return dict_json, None
-   
+        while True: 
+          #  read json payload
+          ser.reset_input_buffer()
+          data = ser.readline().decode("ISO-8859-1")
+          dict_json = json.loads(data)
+          sent=send_data(dict_json)
+          if sent:
+            print("SUCCESS"),print("failed")
+          print(dict_json)
     except json.JSONDecodeError as e:
-        return None, f"Unable to perform the module logic: {e}"
+      return None, f"Unable to perform the module logic: {e}"

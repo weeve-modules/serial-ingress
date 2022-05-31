@@ -14,7 +14,7 @@ push_latest:
 .phony: push_latest
 
 run_image:
-	docker run -p 5000:80 --rm --env-file=./config.env ${MODULE}:latest
+	docker run --device=/dev/ttyUSB0  --rm --env-file=./config.env ${MODULE}:latest
 .phony: run_image
 
 lint:
@@ -26,6 +26,6 @@ install_local:
 .phony: install_local
 
 run_local:
-	python image/src/main.py
+	python3 image/src/main.py
 .phony: run_local
 
