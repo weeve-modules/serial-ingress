@@ -43,13 +43,14 @@ This module read data from serial of a host machine.
 ### Module Specific
 The following module configurations can be provided in a data service designer section on weeve platform:
 
-| Name                | Environment Variables | Type    | Description                |
-|---------------------|-----------------------|---------|----------------------------|
-| Serial Port         | PORT                  | string  | eg: /dev/ttyUSB0           |
-| Serial Baud_Rate    | BAUD_RATE             | integer | The data baud rate         | ws`                |
-| Number of data bits | DATA_BITS             | string  | Port number for tbe broker |
-| Parity              | PARITY                | string  | Enable parity checking     |
-| Stop bits           | STOP_BITS             | string  | Number of stop bits        |
+| Name                | Environment Variables | Type    | Description               |Mandathory/Option|
+|---------------------|-----------------------|---------|---------------------------|-----------------|
+| Serial Port         | PORT                  | string  | eg: /dev/ttyUSB0          |   Mandathory    |
+| Serial Baud_Rate    | BAUD_RATE             | integer | The data baud rate        |   Mandathory    |ws`                |
+| Number of data bits | DATA_BITS             | string  | Port number for tbe broker|    Option       |
+| Parity              | PARITY                | string  | Enable parity checking    |    Option       |
+| Stop bits           | STOP_BITS             | string  | Number of stop bits       |    Option       |
+
 
 Other features required for establishing the inter-container communication between modules in a data service are set by weeve agent.
 
@@ -67,3 +68,11 @@ requests
 python-dotenv
 pyserial==3.3 
 ```
+### Docker container host machine access
+Should give access for a specific interface to avaoid giving access for to the hole interfaces ,change "/dev/ttyUSB0" with the host machine used interface in a host machine. 
+```
+--Device /dev/ttyUSB0 
+```
+
+
+
