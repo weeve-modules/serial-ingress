@@ -28,6 +28,46 @@ environments:
     default: 115200
     type: string
     name: Baud Rate
+      options:
+      - 1200
+      - 2400
+      - 4800
+      - 9600
+      - 57600
+      - 115200
+   - key: DATA_BITS
+    description: Number of data bits
+    value: ''
+    default: EIGHTBITS
+    type: string
+    name: Data Bits
+    options:
+      - FIVEBITS
+      - SIXBITS
+      - SEVENBITS
+      - SEVENBITS
+  - key: PARITY
+    description: Enable parity checking
+    value: ''
+    default: PARITY_NONE
+    type: string
+    name: Parity
+    options:
+    - PARITY_NONE
+    - PARITY_EVEN
+    - PARITY_ODD
+    - PARITY_MARK
+    - PARITY_SPACE
+  - key: STOP_BITS
+    description: Number of stop bits
+    value: ''
+    default: STOPBITS_ONE
+    type: string
+    name: Stop Bits
+    options:
+    - STOPBITS_ONE
+    - STOPBITS_ONE_POINT_FIVE
+    - STOPBITS_TWO
 commands: []
 document:
   ports: []

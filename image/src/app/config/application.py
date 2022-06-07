@@ -7,7 +7,7 @@ from app.utils.env import env
 APPLICATION = {
     "PORT": env("PORT","/dev/ttyUSB0"),
     "BAUD_RATE": env("BAUD_RATE","115200"),
-     "DATA_BITS": env("DATA_BITS","8"),
+     "DATA_BITS": env("DATA_BITS","EIGHTBITS"),
       "PARITY": env("PARITY","PARITY_NONE"),
          "STOP_BITS": env("STOP_BITS","STOPBITS_ONE")
       
