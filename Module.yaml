@@ -36,7 +36,7 @@ environments:
       - 57600
       - 115200
    - key: DATA_BITS
-    description: Number of data bits
+    description: Number of data bits (optional)
     value: ''
     default: EIGHTBITS
     type: string
@@ -47,7 +47,7 @@ environments:
       - SEVENBITS
       - SEVENBITS
   - key: PARITY
-    description: Enable parity checking
+    description: Enable parity checking (optional)
     value: ''
     default: PARITY_NONE
     type: string
@@ -59,7 +59,7 @@ environments:
     - PARITY_MARK
     - PARITY_SPACE
   - key: STOP_BITS
-    description: Number of stop bits
+    description: Number of stop bits (optional)
     value: ''
     default: STOPBITS_ONE
     type: string
