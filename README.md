@@ -31,12 +31,12 @@
 
 ## Description
 
-This module read data from serial of a host machine.
+This module reads data input from specified serial interface.
 
 ### Features
-1. Open serial of a host machine 
+1. Open serial of a host machine
 2. Read received serial data
-3. Progress received serial data in a data service
+3. Forward received serial data 
 
 ## Environment Variables
 
@@ -46,7 +46,7 @@ The following module configurations can be provided in a data service designer s
 | Name                | Environment Variables | Type    | Description               |Mandathory/Option|
 |---------------------|-----------------------|---------|---------------------------|-----------------|
 | Serial Port         | PORT                  | string  | eg: /dev/ttyUSB0          |   Mandathory    |
-| Serial Baud_Rate    | BAUD_RATE             | integer | The data baud rate        |   Mandathory    |ws`                |
+| Serial Baud_Rate    | BAUD_RATE             | integer | The data baud rate        |   Mandathory    |
 | Number of data bits | DATA_BITS             | string  | Port number for tbe broker|    Option       |
 | Parity              | PARITY                | string  | Enable parity checking    |    Option       |
 | Stop bits           | STOP_BITS             | string  | Number of stop bits       |    Option       |
@@ -66,13 +66,8 @@ Other features required for establishing the inter-container communication betwe
 ```
 requests
 python-dotenv
-pyserial==3.3 
-```
-### Docker container host machine access
-Should give access for a specific interface to avaoid giving access for to the hole interfaces ,change "/dev/ttyUSB0" with the host machine used interface in a host machine. 
-```
---Device /dev/ttyUSB0 
-```
+pyserial==3.3
 
-
-
+## Output/Egress
+```
+  

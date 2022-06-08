@@ -26,7 +26,7 @@ environments:
     description: The baud rate 
     value: ''
     default: 115200
-    type: string
+    type: integer
     name: Baud Rate
       options:
       - 1200
@@ -38,14 +38,14 @@ environments:
    - key: DATA_BITS
     description: Number of data bits (optional)
     value: ''
-    default: EIGHTBITS
-    type: string
+    default: 8
+    type: integer
     name: Data Bits
     options:
-      - FIVEBITS
-      - SIXBITS
-      - SEVENBITS
-      - SEVENBITS
+      - 5
+      - 6
+      - 7
+      - 8
   - key: PARITY
     description: Enable parity checking (optional)
     value: ''
@@ -53,21 +53,21 @@ environments:
     type: string
     name: Parity
     options:
-    - PARITY_NONE
-    - PARITY_EVEN
-    - PARITY_ODD
-    - PARITY_MARK
-    - PARITY_SPACE
+    - serial.PARITY_NONE
+    - serial.PARITY_EVEN
+    - serial.PARITY_ODD
+    - serial.PARITY_MARK
+    - serial.PARITY_SPACE
   - key: STOP_BITS
     description: Number of stop bits (optional)
     value: ''
-    default: STOPBITS_ONE
-    type: string
+    default: 1
+    type: integer
     name: Stop Bits
     options:
-    - STOPBITS_ONE
-    - STOPBITS_ONE_POINT_FIVE
-    - STOPBITS_TWO
+    - 1
+    - 1.5
+    - 2
 commands: []
 document:
   ports: []
@@ -77,3 +77,4 @@ document:
     delay: 10s
     max_attempts: 3
     window: 120s
+    

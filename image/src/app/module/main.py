@@ -17,7 +17,7 @@ def module_main():
     """
     try:
         #  open the serial port and get the serial port object
-        ser = serial.Serial(APPLICATION['PORT'], APPLICATION['BAUD_RATE'],APPLICATION['DATA_BITS'],APPLICATION['PARITY'], APPLICATION['STOP_BITS'], timeout=1)
+        ser = serial.Serial(APPLICATION['PORT'], APPLICATION['BAUD_RATE'], timeout=1,bytesize=APPLICATION['DATA_BITS'],parity=APPLICATION['PARITY'], stopbits=APPLICATION['STOP_BITS'])
         while True: 
           #  read json payload
           ser.reset_input_buffer()
@@ -29,3 +29,4 @@ def module_main():
           print(dict_json)
     except json.JSONDecodeError as e:
       return None, f"Unable to perform the module logic: {e}"
+      
