@@ -23,7 +23,7 @@ environments:
     type: string
     name: Port
   - key: BAUD_RATE
-    description: The baud rate 
+    description: The baud rate
     value: ''
     default: 115200
     type: integer
@@ -53,16 +53,16 @@ environments:
     type: string
     name: Parity
     options:
-    - serial.PARITY_NONE
-    - serial.PARITY_EVEN
-    - serial.PARITY_ODD
-    - serial.PARITY_MARK
-    - serial.PARITY_SPACE
+    - 'N'
+    - 'E'
+    - 'O'
+    - 'M'
+    - 'S'
   - key: STOP_BITS
     description: Number of stop bits (optional)
     value: ''
     default: 1
-    type: integer
+    type: float
     name: Stop Bits
     options:
     - 1
@@ -77,4 +77,4 @@ document:
     delay: 10s
     max_attempts: 3
     window: 120s
-    
+

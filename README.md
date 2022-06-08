@@ -18,14 +18,8 @@
   - [Environment Variables](#environment-variables)
     - [Module Specific](#module-specific)
     - [Set by the weeve Agent on the edge-node](#set-by-the-weeve-agent-on-the-edge-node)
-  - [Directory Structure](#directory-structure)
-    - [File Tree](#file-tree)
-  - [As a module developer](#as-a-module-developer)
-    - [Configuration](#configuration)
-    - [Business Logic](#business-logic)
   - [Dependencies](#dependencies)
-  - [Output/Egress](#outputegress)
-- [VSCode Support for devcontainer](#vscode-support-for-devcontainer)
+
 
 ***
 
@@ -36,7 +30,7 @@ This module reads data input from specified serial interface.
 ### Features
 1. Open serial of a host machine
 2. Read received serial data
-3. Forward received serial data 
+3. Forward received serial data
 
 ## Environment Variables
 
@@ -67,7 +61,6 @@ Other features required for establishing the inter-container communication betwe
 requests
 python-dotenv
 pyserial==3.3
-
-## Output/Egress
 ```
-  
+
+
