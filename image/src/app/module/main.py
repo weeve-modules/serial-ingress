@@ -6,6 +6,15 @@ import serial
 import json
 from app.weeve.egress import send_data
 from app.config import APPLICATION
+
+sParity=APPLICATION['PARITY']
+def switch_demo(sParity):
+    switcher = {
+       "None" : "N",
+       "Even" : "E",
+        "Odd" : "O"
+    }
+    return switcher.get(sParity, lambda: "Invalid parity")
 def module_main():
     """implement module logic here
 
@@ -17,8 +26,8 @@ def module_main():
     """
     try:
         #  open the serial port and get the serial port object
-        ser = serial.Serial(APPLICATION['PORT'], APPLICATION['BAUD_RATE'], timeout=1,bytesize=APPLICATION['DATA_BITS'],parity=APPLICATION['PARITY'], stopbits=APPLICATION['STOP_BITS'])
-        while True: 
+        ser = serial.Serial(APPLICATION['PORT'], APPLICATION['BAUD_RATE'], timeout=1,bytesize=APPLICATION['DATA_BITS'],parity=switch_demo(sParity), stopbits=APPLICATION['STOP_BITS'])
+        while True:
           #  read json payload
           ser.reset_input_buffer()
           data = ser.readline().decode("ISO-8859-1")
@@ -29,4 +38,3 @@ def module_main():
           print(dict_json)
     except json.JSONDecodeError as e:
       return None, f"Unable to perform the module logic: {e}"
-      
