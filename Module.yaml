@@ -26,34 +26,30 @@ environments:
     description: The baud rate
     value: ''
     default: 115200
-    type: enum
-    options:
+    type: integer
+    name: Baud Rate
+      options:
       - 1200
       - 2400
       - 4800
       - 9600
       - 57600
       - 115200
-    name: Baud Rate
-  - key: DATA_BITS
+   - key: DATA_BITS
     description: Number of data bits (optional)
     value: ''
     default: 8
-    type: enum
+    type: integer
+    name: Data Bits
     options:
       - 5
       - 6
       - 7
       - 8
-    name: Data Bits
   - key: PARITY
     description: Enable parity checking (optional)
-<<<<<<< HEAD
     value: ''
     default: 'None'
-=======
-   default: 'None'
->>>>>>> c0f28a2ded11f8720b30dd3dc799fb30ba26ae34
     type: string
     name: Parity
     options:
@@ -64,12 +60,12 @@ environments:
     description: Number of stop bits (optional)
     value: ''
     default: 1
-    type: enum
-    options:
-      - 1
-      - 1.5
-      - 2
+    type: Number
     name: Stop Bits
+    options:
+    - 1
+    - 1.5
+    - 2
 commands: []
 document:
   ports: []
