@@ -6,16 +6,7 @@ import serial
 import json
 from app.weeve.egress import send_data
 from app.config import APPLICATION
-def parity_translation(serial_parity=APPLICATION['PARITY']):
-    switcher = {
-       "None" : serial.PARITY_NONE,
-       "Even" : serial.PARITY_EVEN,
-       "Odd"  : serial.PARITY_ODD
-    }
-    try:
-        return switcher.get(serial_parity)
-    except KeyError:
-        print("Invalidate parity")
+
 def module_main():
     """implement module logic here
 
@@ -25,9 +16,16 @@ def module_main():
     Returns:
         [string, string]: [data, error]
     """
+    parity_dict = {
+       "None" : serial.PARITY_NONE,
+       "Even" : serial.PARITY_EVEN,
+       "Odd"  : serial.PARITY_ODD
+    }
     try:
+        if APPLICATION['PARITY'] not in parity_dict:
+            raise Exception("..Parity not validated..")
         #  open the serial port and get the serial port object
-        ser = serial.Serial(APPLICATION['PORT'], APPLICATION['BAUD_RATE'], timeout=1,bytesize=APPLICATION['DATA_BITS'],parity=parity_translation(), stopbits=APPLICATION['STOP_BITS'])
+        ser = serial.Serial(APPLICATION['PORT'], APPLICATION['BAUD_RATE'], timeout=1,bytesize=APPLICATION['DATA_BITS'],parity=parity_dict.get(APPLICATION['PARITY']), stopbits=APPLICATION['STOP_BITS'])
         while True:
             #  read json payload
             ser.reset_input_buffer()
