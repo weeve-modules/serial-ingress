@@ -1,6 +1,7 @@
 """
 All constants specific to the application
 """
+import serial
 from app.utils.env import env
 APPLICATION = {
     "PORT":      env("PORT","/dev/ttyUSB0"),
