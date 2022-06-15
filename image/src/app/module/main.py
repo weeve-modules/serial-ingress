@@ -21,9 +21,9 @@ def module_main():
        "Even" : serial.PARITY_EVEN,
        "Odd"  : serial.PARITY_ODD
     }
+    if APPLICATION['PARITY'] not in parity_dict:
+        raise Exception("..Parity not validated..")
     try:
-        if APPLICATION['PARITY'] not in parity_dict:
-            raise Exception("..Parity not validated..")
         #  open the serial port and get the serial port object
         ser = serial.Serial(APPLICATION['PORT'], APPLICATION['BAUD_RATE'], timeout=1,bytesize=APPLICATION['DATA_BITS'],parity=parity_dict.get(APPLICATION['PARITY']), stopbits=APPLICATION['STOP_BITS'])
         while True:
