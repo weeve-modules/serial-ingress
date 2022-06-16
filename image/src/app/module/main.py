@@ -25,11 +25,9 @@ def module_main():
         raise Exception("Invalid parity")
     try:
         #  open the serial port and get the serial port object
-        str_data_bytes = bytes(str(APPLICATION['DATA_BITS']), "ascii")
-        data_bytes= int(str_data_bytes)
-        str_stop_bits=bytes(str(APPLICATION['STOP_BITS']), "ascii")
-        stop_bits=float(str_stop_bits)
-        ser = serial.Serial(APPLICATION['PORT'], APPLICATION['BAUD_RATE'], timeout=1,bytesize=data_bytes,parity=parity_dict.get(APPLICATION['PARITY']), stopbits=stop_bits)
+        data_bits= int(APPLICATION['DATA_BITS'])
+        stop_bits=float(APPLICATION['STOP_BITS'])
+        ser = serial.Serial(APPLICATION['PORT'], APPLICATION['BAUD_RATE'], timeout=1,bytesize=data_bits,parity=parity_dict.get(APPLICATION['PARITY']), stopbits=stop_bits)
         while True:
             #  read json payload
             ser.reset_input_buffer()
