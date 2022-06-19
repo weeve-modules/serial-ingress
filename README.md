@@ -7,7 +7,7 @@
 | version      | v0.1.0                                                                              |
 | docker image | [weevenetwork/serial-ingress](https://hub.docker.com/r/weevenetwork/serial-ingress) |
 | tags         | Python, Flask, Docker, Weeve                                                        |
-| authors      | Ghassen barbocuhi                                                                   |
+| authors      | Ghassen Barbouchi                                                                   |
 
 ***
 ## Table of Content
@@ -45,7 +45,6 @@ The following module configurations can be provided in a data service designer s
 | Parity              | PARITY                | string  | Enable parity checking    |    Option       |
 | Stop bits           | STOP_BITS             | string  | Number of stop bits       |    Option       |
 
-
 Other features required for establishing the inter-container communication between modules in a data service are set by weeve agent.
 
 ### Set by the weeve Agent on the edge-node
@@ -60,7 +59,5 @@ Other features required for establishing the inter-container communication betwe
 ```
 requests
 python-dotenv
-pyserial==3.3
+pyserial
 ```
-
-
