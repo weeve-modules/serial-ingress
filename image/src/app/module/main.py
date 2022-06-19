@@ -26,6 +26,7 @@ def module_main():
     try:
         #  open the serial port and get the serial port object
         ser = serial.Serial(APPLICATION['PORT'], int(APPLICATION['BAUD_RATE']), timeout=1,bytesize=int(APPLICATION['DATA_BITS']),parity=parity_dict.get(APPLICATION['PARITY']), stopbits=float(APPLICATION['STOP_BITS']))
+
         while True:
             #  read json payload
             ser.reset_input_buffer()
